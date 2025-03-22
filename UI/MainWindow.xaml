@@ -1,0 +1,29 @@
+<Window x:Class="ParkingOut.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParkingOut.UI"
+        mc:Ignorable="d"
+        Title="ParkingOut Management System" Height="720" Width="1280" 
+        WindowStartupLocation="CenterScreen">
+    
+    <!-- Simple content for testing -->
+    <Grid Background="#F5F5F5">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="ParkingOut Management System" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,20"/>
+            <TextBlock Text="Simplified Test Version"
+                       FontSize="18"
+                       Margin="0,0,0,40"/>
+            <Button Content="Test Button" 
+                    Padding="20,10" 
+                    Background="#0078D7" 
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window> 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>false</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ParkingOut</AssemblyName>
+    <RootNamespace>ParkingOut</RootNamespace>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <StartupObject>ParkingOut.App</StartupObject>
+    <ApplicationIcon></ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Remove="AForge" />
+    <PackageReference Remove="AForge.Video" />
+    <PackageReference Remove="AForge.Video.DirectShow" />
+    <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.6.0.20220608" />
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="Npgsql" Version="7.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="NLog" Version="5.2.8" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+    <PackageReference Include="ZXing.Net" Version="0.16.8" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.0.0" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Database\schema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Database\schema_mysql.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Database\schema_postgresql.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Exclude WinForms files from the build temporarily during WPF migration -->
+  <ItemGroup>
+    <Compile Remove="Forms\**\*.cs" />
+    <Compile Remove="Controls\**\*.cs" />
+    <Compile Remove="Utils\GradientPanel.cs" />
+    <Compile Remove="Utils\ModernMenuButton.cs" />
+    <Compile Remove="Utils\ModernSidebar.cs" />
+    <Compile Remove="Utils\NotificationHelper.cs" />
+  </ItemGroup>
+
+  <!-- Files to include -->
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\MessageHelper.cs" />
+    <Compile Include="Utils\IAppLogger.cs" />
+    <Compile Include="Utils\NLogLogger.cs" />
+    <Compile Include="Utils\AppLogger.cs" />
+    <Compile Include="UI\**\*.cs" />
+    
+    <ApplicationDefinition Include="App.xaml" />
+    
+    <Page Include="UI\**\*.xaml" />
+    
+    <Compile Update="**\*.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project> 
