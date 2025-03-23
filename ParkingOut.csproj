@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -8,6 +7,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>false</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>10.0</LangVersion>
     <AssemblyName>ParkingOut</AssemblyName>
     <RootNamespace>ParkingOut</RootNamespace>
     <EnableDefaultItems>false</EnableDefaultItems>
@@ -23,21 +23,27 @@
     <PackageReference Remove="AForge.Video.DirectShow" />
     <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
     <PackageReference Include="OpenCvSharp4.Windows" Version="4.6.0.20220608" />
-    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="ClosedXML" Version="0.104.1" />
     <PackageReference Include="Npgsql" Version="7.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="5.2.8" />
+    <PackageReference Include="NLog" Version="5.2.0" />
+    <PackageReference Include="NLog.Schema" Version="5.2.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="ZXing.Net" Version="0.16.8" />
     <PackageReference Include="PDFsharp-MigraDoc" Version="6.0.0" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Utils\ParkingOut.Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,7 +63,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
@@ -81,6 +87,14 @@
     <Compile Include="Utils\NLogLogger.cs" />
     <Compile Include="Utils\AppLogger.cs" />
     <Compile Include="UI\**\*.cs" />
+    <!-- Tambahkan file Models dan Services -->
+    <Compile Include="Models\ActivityLogItem.cs" />
+    <Compile Include="Models\VehicleEntry.cs" />
+    <Compile Include="Services\IVehicleEntryService.cs" />
+    <Compile Include="Services\IVehicleExitService.cs" />
+    <Compile Include="Services\IAppLogger.cs" />
+    <Compile Include="Services\IPrintService.cs" />
+    <Compile Include="Services\ICameraService.cs" />
     
     <ApplicationDefinition Include="App.xaml" />
     
@@ -90,5 +104,4 @@
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
-
-</Project> 
+</Project>

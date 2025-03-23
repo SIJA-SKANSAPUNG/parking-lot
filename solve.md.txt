@@ -1,0 +1,9 @@
+D:\21maret\clean_code\ParkingOut\UI\DashboardPage.xaml.cs
+D:\21maret\clean_code\ParkingOut\UI\MainWindow.xaml.cs
+D:\21maret\clean_code\ParkingOut\UI\VehicleEntryPage.xaml.cs
+D:\21maret\clean_code\ParkingOut\Utils\Services\AppLogger.cs
+D:\21maret\clean_code\ParkingOut\Utils\Services\AppLoggerImpl.cs
+D:\21maret\clean_code\ParkingOut\Utils\ModernSidebar.cs
+D:\21maret\clean_code\ParkingOut\Utils\ResourceHelper.cs
+D:\21maret\clean_code\ParkingOut\Utils\UserManager.cs
+D:\21maret\clean_code\ParkingOut\App.xaml.cs
